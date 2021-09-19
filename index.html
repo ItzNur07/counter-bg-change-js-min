@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- link css -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="bg">
+    <div class="container">
+        <h1 class="title">Counter</h1>
+        <h1 class="count">0</h1>
+        <div class="btn-group">
+            <button id="dec">Decrease</button>
+            <button id="reset">Reset</button>
+            <button id="inc">Increase</button>
+        </div>
+    </div>
+
+
+    
+    <script>
+    <!-- selector -->
+    let dec = document.querySelector('#dec');
+    let res = document.querySelector('#reset');
+    let inc = document.querySelector('#inc');
+    let bg = document.getElementById('bg');
+    let showCount = document.querySelector('.count');
+    let count = 0;
+    // Event Listener
+    // decrease
+    dec.addEventListener('click', () => {
+        count--;
+        showCount.innerText = count;
+    })
+    // increase
+    inc.addEventListener('click', () => {
+        count++;
+        showCount.innerText = count;
+        let symbol, color;
+        symbol = "12ffdefc34fde3248590aafffed";
+        color = "#";
+
+        for (var i = 0; i < 6; i++) {
+            color = color + symbol[Math.floor(Math.random() * 26)]
+        }
+        bg.style.background = color;
+    })
+    // reset
+    res.addEventListener('click', () => {
+        count = 0;
+        showCount.innerText = count;
+        bg.style.background = "dodgerblue";
+    })
+    </script>
+</body>
+
+</html>
